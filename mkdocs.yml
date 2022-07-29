@@ -1,0 +1,12 @@
+---
+site_name: ci-cd-example
+site_author: Daniil Trotsenko
+
+theme:
+    name: material
+
+plugins:
+    - mkdocstrings
+
+nav:
+    - Main: index.md
