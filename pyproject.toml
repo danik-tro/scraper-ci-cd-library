@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "scraper"
+name = "scraper-api"
 version = "0.1.0"
 description = "CI/CD pipelines for scraper library"
 authors = ["Daniil Trotsenko <daniil.trotsenko.dev@gmail.com>"]
@@ -18,9 +18,9 @@ packages = [
 readme = "README.md"
 
 
-repository = ""
-homepage = ""
-documentation = ""
+repository = "https://github.com/danik-tro/scraper-ci-cd-library"
+homepage = "https://github.com/danik-tro/scraper-ci-cd-library"
+documentation = "https://danik-tro.github.io/scraper-ci-cd-library/"
 
 
 [tool.poetry.dependencies]
