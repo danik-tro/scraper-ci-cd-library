@@ -1,0 +1,31 @@
+---
+# Deploy docs to GitHub pages and package to PyPi
+name: Deploy
+
+on:
+    push:
+        tags:
+            - v*
+
+jobs:
+    docs:
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v2
+            - name: System setup
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.10.5
+            - name: Install poetry
+              uses: snok/install-poetry@v1
+              with:
+                  virtualenvs-create: true
+                  virtualenvs-in-project: true
+            - name: Dependencies
+              run: |
+                  # Install only docs dependencies
+                  poetry install --only docs
+            - name: Deploy
+              run: |
+                  # Deploy to github pages
+                  poetry run mkdocs gh-deploy -c -q
