@@ -1,21 +1,5 @@
 """
-scraper. Write docs for your package here.
-
-
-Example of documenting code using Google format
-
-    def some_function(a: int, b: int):
-        \"\"\"
-        Some docs for your function.
-        Args:
-            a(int): ...
-            b(int): ...
-        Raises:
-            ...
-        Returns:
-            ...
-        \"\"\"
-        ...
+Package that define how to build scraper using this library and deploy with CI/CD best practices.
 """
 
 __version__ = "0.1.0"

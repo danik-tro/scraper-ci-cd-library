@@ -10,3 +10,4 @@ plugins:
 
 nav:
     - Main: index.md
+    - Scraper interface: scraper.md
