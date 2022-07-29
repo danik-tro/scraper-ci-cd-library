@@ -24,7 +24,7 @@ jobs:
             - name: Dependencies
               run: |
                   # Install only docs dependencies
-                  poetry install --only docs
+                  poetry install --no-interaction --no-root
             - name: Deploy
               run: |
                   # Deploy to github pages
