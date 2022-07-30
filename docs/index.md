@@ -1,5 +1,5 @@
 # ci-cd-example Docs
 
-Main page
+Main page of the docs
 
 :::scraper
