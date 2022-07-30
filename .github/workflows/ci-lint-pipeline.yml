@@ -2,9 +2,6 @@
 name: Linters/Test workflow
 
 on:
-    push:
-        branches:
-            - '!master'
     pull_request:
         branches:
             - '*'
