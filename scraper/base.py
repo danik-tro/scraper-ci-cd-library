@@ -21,6 +21,18 @@ class AbstractScraper(metaclass=ABCMeta):
     """
 
     @abstractmethod
+    def collect_data(self, **kwargs) -> dict:
+        """
+        Method to collect data from page
+
+        Args:
+            **kwargs: common kwargs
+
+        Returns:
+            (dict): return processed data
+        """
+
+    @abstractmethod
     def scrape(self, url: str) -> str:
         """
         Main method to start to scrape data from url

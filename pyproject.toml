@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scraper-api"
-version = "0.1.0"
+version = "0.1.1-beta"
 description = "CI/CD pipelines for scraper library"
 authors = ["Daniil Trotsenko <daniil.trotsenko.dev@gmail.com>"]
 maintainers = ["Daniil Trotsenko <daniil.trotsenko.dev@gmail.com>"]
