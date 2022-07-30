@@ -4,8 +4,6 @@ name: Deploy
 
 on:
     push:
-        branches:
-            - master
         tags:
             - v*
 
@@ -50,4 +48,4 @@ jobs:
             - name: Deploy
               run: |
                   # Deploy to github pages
-                  poetry publish --build -u __token__ -p ${{ secret.PYPITOKEN }}
+                  poetry publish --build -u __token__ -p ${{ secrets.PYPITOKEN }}
