@@ -28,4 +28,4 @@ jobs:
             - name: Deploy
               run: |
                   # Deploy to github pages
-                  poetry run mkdocs gh-deploy -c -q
+                  poetry run mkdocs gh-deploy -c -q --shell
