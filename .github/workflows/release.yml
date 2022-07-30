@@ -1,0 +1,51 @@
+---
+# Deploy docs to GitHub pages and package to PyPi
+name: Release
+
+on:
+    push:
+        tags:
+            - v*
+
+jobs:
+    docs:
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v2
+            - name: System setup
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.10.5
+            - name: Install poetry
+              uses: snok/install-poetry@v1
+              with:
+                  virtualenvs-create: true
+                  virtualenvs-in-project: true
+            - name: Dependencies
+              run: |
+                  poetry install --no-interaction --no-root
+            - name: Deploy
+              run: |
+                  # Deploy to github pages
+                  poetry run mkdocs gh-deploy --force --clean --verbose
+    pypi:
+        runs-on: ubuntu-20.04
+        needs: docs
+        steps:
+            - uses: actions/checkout@v2
+            - name: System setup
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.10.5
+            - name: Install poetry
+              uses: snok/install-poetry@v1
+              with:
+                  virtualenvs-create: true
+                  virtualenvs-in-project: true
+            - name: Dependencies
+              run: |
+                  poetry install --no-interaction --no-root --no-dev
+            - name: Deploy
+              run: |
+                  # Deploy to github pages
+                  poetry publish --build -u __token__ -p ${{ secrets.PYPITOKEN }}
