@@ -7,9 +7,25 @@ on:
             - closed
 
 jobs:
-    if_merged:
+    release-validate:
         if: github.event.pull_request.merged == true
         runs-on: ubuntu-latest
         steps:
             - run: |
-                  echo The PR was merged
+                  # validate title of request
+                  # Valid format example:
+                  # 3.7.0: Release title
+                  echo ${{ github.event.pull_request.title }}
+                  echo ${{ github.event.pull_request.body }}
+    release-lint-test:
+        needs: release-validate
+        uses: ./.github/workflows/common-ci.yml
+
+    release:
+        needs: lint-test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Creating tag
+              run: |
+                  echo "Creating tag"
