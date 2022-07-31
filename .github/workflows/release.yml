@@ -22,7 +22,7 @@ jobs:
         uses: ./.github/workflows/common-ci.yml
 
     release:
-        needs: lint-test
+        needs: release-lint-test
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
